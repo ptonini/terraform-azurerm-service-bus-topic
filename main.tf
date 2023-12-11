@@ -13,8 +13,8 @@ resource "azurerm_servicebus_topic" "this" {
 }
 
 module "subscriptions" {
-  source  = "ptonini/service-bus-subscription/azurerm"
-  version = "~> 1.0.0"
+  source                                    = "ptonini/service-bus-subscription/azurerm"
+  version                                   = "~> 1.0.0"
   for_each                                  = var.subscriptions
   name                                      = each.key
   topic_id                                  = azurerm_servicebus_topic.this.id
